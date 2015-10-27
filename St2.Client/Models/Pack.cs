@@ -10,7 +10,7 @@ namespace TonyBaloney.St2.Client.Models
 		public string author { get; set; }
 		public string id { get; set; }
 		public string version { get; set; }
-		public List<object> keywords { get; set; }
+		public List<string> keywords { get; set; }
 		public string @ref { get; set; }
 		public string email { get; set; }
 		public string uid { get; set; }

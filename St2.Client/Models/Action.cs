@@ -11,7 +11,7 @@ namespace TonyBaloney.St2.Client.Models
 		public string pack { get; set; }
 		public string entry_point { get; set; }
 		public string uid { get; set; }
-		public object parameters { get; set; }
+		public Dictionary<string, ActionParameter> parameters { get; set; }
 		public string @ref { get; set; }
 		public string id { get; set; }
 		public string name { get; set; }
