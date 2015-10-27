@@ -1,4 +1,8 @@
 # St2Client
+
+[![Build status](https://ci.appveyor.com/api/projects/status/y7rueuv6m1v0g7p8?svg=true)](https://ci.appveyor.com/project/tonybaloney/st2client)
+
+
 A StackStorm API client for C#.NET including a PowerShell module
 
 ## Using the C#.NET client
@@ -8,7 +12,7 @@ St2Client apiClient = new St2Client("http://12.3.2.3:9100", "http://12.3.2.3:910
 // login and get a token
 await apiClient.RefreshTokenAsync();
 
-var actions = await apiClient.GetActionsAsync();
+var actions = await apiClient.Actions.GetActionsAsync();
 ```
 
 ## Using the PowerShell module

@@ -12,7 +12,7 @@ namespace TonyBaloney.St2.Client.PowerShell
 			base.ProcessRecord();
 			try
 			{
-				var packs = Connection.ApiClient.GetPacksAsync().Result;
+				var packs = Connection.ApiClient.Packs.GetPacksAsync().Result;
 
 				foreach (var pack in packs)
 				{
