@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>St2.Client</id>
+    <version>$version$</version>
+    <title>StackStorm API client</title>
+    <authors>Anthony Shaw</authors>
+    <projectUrl>https://github.com/tonybaloney/St2Client</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides a client to talk to a StackStorm API.</description>
+    <summary>Provides a client to talk to a StackStorm API.</summary>
+    <releaseNotes>.</releaseNotes>
+    <copyright>Copyright Dimension Data 2015</copyright>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Newtonsoft.Json" version="6.0.4"/>
+        <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\St2.Client.dll" target="lib\net45\St2.Client.dll" />
+    <file src="bin\Release\St2.Client.xml" target="lib\net45\St2.Client.xml" />
+  </files>
+</package>
