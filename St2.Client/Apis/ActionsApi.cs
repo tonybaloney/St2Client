@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 
 namespace TonyBaloney.St2.Client.Apis
 {
+	using Action=Models.Action;
+
 	/// <summary>	The actions api. </summary>
 	public class ActionsApi : IActionsApi
 	{
@@ -19,6 +21,16 @@ namespace TonyBaloney.St2.Client.Apis
 		public async Task<IList<Action>> GetActionsAsync()
 		{
 			return await _host.GetApiRequestAsync<List<Action>>("/v1/actions");
+		}
+
+		public async Task<IList<Action>> GetActionsForPackAsync(string pack)
+		{
+			return await _host.GetApiRequestAsync<List<Action>>("/v1/actions?pack=" + pack);
+		}
+
+		public async Task<IList<Action>> GetActionsByNameAsync(string name)
+		{
+			return await _host.GetApiRequestAsync<List<Action>>("/v1/actions?name=" + name);
 		}
 
 		public async Task DeleteActionAsync(string actionId)

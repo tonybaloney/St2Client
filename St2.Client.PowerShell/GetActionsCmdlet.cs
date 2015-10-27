@@ -1,19 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Management.Automation;
 
 namespace TonyBaloney.St2.Client.PowerShell
 {
+	using Action = Models.Action;
+
 	[Cmdlet(VerbsCommon.Get, "St2Actions")]
 	public class GetActionsCmdlet
 		: BaseClientCmdlet
 	{
+		[Parameter(Mandatory = false, HelpMessage = "Actions for a particular pack")] public string Pack;
+
+		[Parameter(Mandatory = false, HelpMessage = "Actions with name")] public string Name;
+
 		protected override void ProcessRecord()
 		{
 			base.ProcessRecord();
 
 			try
 			{
-				var actions = Connection.ApiClient.Actions.GetActionsAsync().Result;
+				IList<Action> actions;
+
+				if (!String.IsNullOrWhiteSpace(Pack))
+					actions = Connection.ApiClient.Actions.GetActionsForPackAsync(Pack).Result;
+				else if (!String.IsNullOrWhiteSpace(Name))
+					actions = Connection.ApiClient.Actions.GetActionsByNameAsync(Name).Result;
+				else
+				{
+					actions = Connection.ApiClient.Actions.GetActionsAsync().Result;
+				}
+
 
 				foreach (var action in actions)
 				{
