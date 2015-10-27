@@ -6,9 +6,9 @@ namespace TonyBaloney.St2.Client.PowerShell
 	public class GetPacksCmdlet
 		: BaseClientCmdlet
 	{
-		protected async override void ProcessRecord()
+		protected override void ProcessRecord()
 		{
-			var packs = await Connection.ApiClient.GetPacksAsync();
+			var packs = Connection.ApiClient.GetPacksAsync().Result;
 
 			foreach (var pack in packs)
 			{

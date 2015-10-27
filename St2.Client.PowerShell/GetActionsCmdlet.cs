@@ -6,9 +6,9 @@ namespace TonyBaloney.St2.Client.PowerShell
 	public class GetActionsCmdlet
 		: BaseClientCmdlet
 	{
-		protected async override void ProcessRecord()
+		protected override void ProcessRecord()
 		{
-			var actions = await Connection.ApiClient.GetActionsAsync();
+			var actions = Connection.ApiClient.GetActionsAsync().Result;
 
 			foreach (var action in actions)
 			{
