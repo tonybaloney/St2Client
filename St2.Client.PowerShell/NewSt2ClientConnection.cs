@@ -5,10 +5,10 @@ using System.Management.Automation;
 namespace TonyBaloney.St2.Client.PowerShell
 {
 	/// <summary>
-	///     The "New-St2ClientConnection" Cmdlet.
+	///     The "New-CaasConnection" Cmdlet.
 	/// </summary>
 	/// <remarks>
-	///     Used to create a new connection to the  API.
+	///     Used to create a new connection to the CaaS API.
 	/// </remarks>
 	[Cmdlet(VerbsCommon.New, "St2ClientConnection")]
 	[OutputType(typeof (St2ClientConnection))]
