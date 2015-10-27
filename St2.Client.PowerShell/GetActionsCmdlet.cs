@@ -1,4 +1,5 @@
-﻿using System.Management.Automation;
+﻿using System;
+using System.Management.Automation;
 
 namespace TonyBaloney.St2.Client.PowerShell
 {
@@ -8,11 +9,26 @@ namespace TonyBaloney.St2.Client.PowerShell
 	{
 		protected override void ProcessRecord()
 		{
-			var actions = Connection.ApiClient.GetActionsAsync().Result;
+			base.ProcessRecord();
 
-			foreach (var action in actions)
+			try
 			{
-				WriteObject(action);
+				var actions = Connection.ApiClient.GetActionsAsync().Result;
+
+				foreach (var action in actions)
+				{
+					WriteObject(action);
+				}
+			}
+			catch (AggregateException ae)
+			{
+				ae.Handle(
+					e =>
+					{
+						ThrowTerminatingError(new ErrorRecord(e, "-1", ErrorCategory.ConnectionError, Connection));
+
+						return true;
+					});
 			}
 		}
 	}
