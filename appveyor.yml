@@ -15,6 +15,7 @@ configuration: Release
 
 build:
   project: St2.Client.sln
+  publish_nuget: true
 
 after_test:
   - ps: .\nuget\pack.ps1
