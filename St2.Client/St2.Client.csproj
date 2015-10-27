@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\ActionsApi.cs" />
+    <Compile Include="Apis\IActionsApi.cs" />
+    <Compile Include="Apis\IPacksApi.cs" />
+    <Compile Include="Apis\PacksApi.cs" />
     <Compile Include="AuthExtensions.cs" />
     <Compile Include="ISt2Client.cs" />
     <Compile Include="Models\Action.cs" />

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using TonyBaloney.St2.Client.Apis;
 using TonyBaloney.St2.Client.Models;
 using Action = TonyBaloney.St2.Client.Models.Action;
 
@@ -47,6 +49,9 @@ namespace TonyBaloney.St2.Client
 			_authUrl = new Uri(authUrl);
 			_password = password;
 			_username = username;
+
+			Actions = new ActionsApi(this);
+			Packs = new PacksApi(this);
 		}
 
 		/// <summary>	Refresh the token. </summary>
@@ -84,17 +89,33 @@ namespace TonyBaloney.St2.Client
 			}
 		}
 
-		/// <summary>	Gets a list of packs in the StackStorm API. </summary>
-		/// <returns>	A TPL Task. </returns>
-		public async Task<IList<Pack>> GetPacksAsync()
+		public async Task<TResponseType> PostApiRequestAsync<TResponseType, TRequestType>(string url, TRequestType request)
 		{
-			return await GetApiRequestAsync<List<Pack>>("/v1/packs");
+			using (var client = new HttpClient())
+			{
+				client.BaseAddress = _apiUrl;
+				client.AddXAuthToken(_token);
+
+				var response = await client.PostAsync(url, request, new JsonMediaTypeFormatter());
+
+				return await response.Content.ReadAsAsync<TResponseType>();
+			}
 		}
 
-		public async Task<IList<Action>> GetActionsAsync()
+		public async Task DeleteApiRequestAsync(string url)
 		{
-			return await GetApiRequestAsync<List<Action>>("/v1/actions");
+			using (var client = new HttpClient())
+			{
+				client.BaseAddress = _apiUrl;
+				client.AddXAuthToken(_token);
+
+				await client.DeleteAsync(url);
+			}
 		}
+
+		public IActionsApi Actions { get; private set; }
+
+		public IPacksApi Packs { get; private set; }
 
 		public void Dispose()
 		{

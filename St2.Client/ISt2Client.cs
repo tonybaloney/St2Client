@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using TonyBaloney.St2.Client.Models;
+using TonyBaloney.St2.Client.Apis;
 
 namespace TonyBaloney.St2.Client
 {
@@ -16,11 +16,14 @@ namespace TonyBaloney.St2.Client
 		/// <returns>	The TPL task. </returns>
 		Task<TResponseType> GetApiRequestAsync<TResponseType>(string url);
 
-		/// <summary>	Gets a list of packs in the StackStorm API. </summary>
-		/// <returns>	A TPL Task. </returns>
-		Task<IList<Pack>> GetPacksAsync();
+		Task<TResponseType> PostApiRequestAsync<TResponseType, TRequestType>(string url, TRequestType request);
 
-		Task<IList<Action>> GetActionsAsync();
+		Task DeleteApiRequestAsync(string url);
+
+		IActionsApi Actions { get; }
+
+		IPacksApi Packs { get; }
+
 		void Dispose();
 	}
 }

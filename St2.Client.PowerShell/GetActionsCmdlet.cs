@@ -13,7 +13,7 @@ namespace TonyBaloney.St2.Client.PowerShell
 
 			try
 			{
-				var actions = Connection.ApiClient.GetActionsAsync().Result;
+				var actions = Connection.ApiClient.Actions.GetActionsAsync().Result;
 
 				foreach (var action in actions)
 				{
