@@ -15,10 +15,10 @@ var actions = await apiClient.GetActionsAsync();
 
 ```powershell
 Import-Module .\St2.Client.Powershell.dll
-New-St2ClientConnection -Username testu -Password testp -ApiUrl "http://12.3.2.3:9101" -AuthApiUrl "http://12.3.2.3:9100"
+$conn = New-St2ClientConnection -Username testu -Password testp -ApiUrl "http://12.3.2.3:9101" -AuthApiUrl "http://12.3.2.3:9100"
 
-Get-St2Packs | ft
+Get-St2Packs -Connection $conn | ft
 
-Get-St2Actions | ft
+Get-St2Actions -Connection $conn | ft
 
 ```
