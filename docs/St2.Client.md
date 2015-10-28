@@ -128,6 +128,16 @@ Gets executions for action.
 > #####Return value
 > A list of .
 
+####ExecuteActionAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
+Executes the action.
+> #####Parameters
+> **actionName:** Name of the action.
+
+> **parameters:** The parameters for the given action.
+
+> #####Return value
+> The resulting execution;
+
 ##St2.Client.Apis.IExecutionsApi
             
 Interface for executions API.
@@ -152,6 +162,16 @@ Gets executions for action.
 
 > #####Return value
 > A list of .
+
+####ExecuteActionAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
+Executes the actionn.
+> #####Parameters
+> **actionName:** Name of the action.
+
+> **parameters:** The parameters for the given action.
+
+> #####Return value
+> The resulting execution;
 
 ##St2.Client.Apis.IPacksApi
             
