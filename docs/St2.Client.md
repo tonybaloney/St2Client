@@ -20,7 +20,7 @@ Initializes a new instance of the TonyBaloney.St2.Client.Apis.ActionsApi class.
 ####GetActionsAsync
 Get all available Actions.
 > #####Return value
-> A List of .
+> A List of Actions.
 
 ####GetActionsForPackAsync(System.String)
 Gets actions for pack.
@@ -28,7 +28,7 @@ Gets actions for pack.
 > **pack:** The pack name.
 
 > #####Return value
-> A List of .
+> A List of Actions.
 
 ####GetActionsByNameAsync(System.String)
 Gets actions by name.
@@ -36,15 +36,13 @@ Gets actions by name.
 > **name:** The action name.
 
 > #####Return value
-> A List of .
+> A List of Actions.
 
 ####DeleteActionAsync(System.String)
 Deletes the action described by actionId.
 > #####Parameters
 > **actionId:** can be either the ID (e.g. 1 or the ref e.g. mypack.myaction).
 
-> #####Return value
-> A Task.
 
 ####CreateActionAsync(TonyBaloney.St2.Client.Models.Action)
 Creates a new action.
