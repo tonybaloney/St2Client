@@ -24,7 +24,7 @@ namespace TonyBaloney.St2.Client.Apis
 		}
 
 		/// <summary>	Get all available Actions. </summary>
-		/// <returns>	A List of <see cref="Action"/>. </returns>
+		/// <returns>	A List of Actions<see cref="Action"/>. </returns>
 		/// <seealso cref="M:TonyBaloney.St2.Client.Apis.IActionsApi.GetActionsAsync()"/>
 		public async Task<IList<Action>> GetActionsAsync()
 		{
@@ -33,7 +33,7 @@ namespace TonyBaloney.St2.Client.Apis
 
 		/// <summary>	Gets actions for pack. </summary>
 		/// <param name="pack">	The pack name. </param>
-		/// <returns>	A List of <see cref="Action"/>. </returns>
+		/// <returns>	A List of Actions<see cref="Action"/>. </returns>
 		/// <seealso cref="M:TonyBaloney.St2.Client.Apis.IActionsApi.GetActionsForPackAsync(string)"/>
 		public async Task<IList<Action>> GetActionsForPackAsync(string pack)
 		{
@@ -42,7 +42,7 @@ namespace TonyBaloney.St2.Client.Apis
 
 		/// <summary>	Gets actions by name. </summary>
 		/// <param name="name">	The action name. </param>
-		/// <returns>	A List of <see cref="Action"/>. </returns>
+		/// <returns>	A List of Actions<see cref="Action"/>. </returns>
 		/// <seealso cref="M:TonyBaloney.St2.Client.Apis.IActionsApi.GetActionsByNameAsync(string)"/>
 		public async Task<IList<Action>> GetActionsByNameAsync(string name)
 		{
@@ -51,7 +51,6 @@ namespace TonyBaloney.St2.Client.Apis
 
 		/// <summary>	Deletes the action described by actionId. </summary>
 		/// <param name="actionId">can be either the ID (e.g. 1 or the ref e.g. mypack.myaction). </param>
-		/// <returns>	A Task. </returns>
 		/// <seealso cref="M:TonyBaloney.St2.Client.Apis.IActionsApi.DeleteActionAsync(string)"/>
 		public async Task DeleteActionAsync(string actionId)
 		{
@@ -62,9 +61,9 @@ namespace TonyBaloney.St2.Client.Apis
 		/// <param name="action">	The <see cref="Action"/> to create. </param>
 		/// <returns>	The new action asynchronous. </returns>
 		/// <seealso cref="M:TonyBaloney.St2.Client.Apis.IActionsApi.CreateActionAsync(Action)"/>
-		public async Task CreateActionAsync(Action action)
+		public async Task<Action> CreateActionAsync(Action action)
 		{
-			await _host.PostApiRequestAsync<Action, Action>("/v1/actions/", action);
+			return await _host.PostApiRequestAsync<Action, Action>("/v1/actions/", action);
 		}
 	}
 }

@@ -26,6 +26,7 @@ The PowerShell Module includes the following commands:
 * Get-St2Actions - Get the actions (can filter by pack name)
 * Get-St2Packs - Get the packs available
 * Get-St2Executions - Get the executions
+* Remove-St2Action - Delete an Action
 
 ```powershell
 Import-Module .\St2.Client.Powershell.dll

@@ -28,6 +28,6 @@ namespace TonyBaloney.St2.Client.Apis
 
 		/// <summary>	Creates a new action. </summary>
 		/// <param name="action">	The <see cref="Action"/> to create. </param>
-		Task CreateActionAsync(Action action);
+		Task<Action> CreateActionAsync(Action action);
 	}
 }
