@@ -16,7 +16,8 @@ configuration: Release
 build:
   project: St2.Client.sln
   publish_nuget: true
-
+after_build:
+- ps: .\xmldoc2md\xmldoc2md.ps1 -xml .\St2.Client\bin\Release\St2.Client.xml -xsl .\xmldoc2md\xmldoc2md.xsl -output .\docs\St2.Client.md
 after_test:
   - ps: .\nuget\pack.ps1
 
@@ -30,3 +31,13 @@ deploy:
   api_key:
     secure: qJZSv8NQtZWzFP++jAFq1/5abEpcDjW8Wl8rKNwleadnejoLwpdg1+3rUpSG38SN
   artifact: /.*\.nupkg/
+  
+environment:
+  access_token:
+    secure: O/sXyJYB0lM0WHQmuoG1LjfB/w9pwx8Pt3HmS13N9MXP7UqbY4/aJvJwemP0tlp2
+
+on_success:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git commit -m "Updated docs [skip appveyor]"
+  - git push
