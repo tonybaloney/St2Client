@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using TonyBaloney.St2.Client.Apis;
 using TonyBaloney.St2.Client.Models;
-using Action = TonyBaloney.St2.Client.Models.Action;
 
 namespace TonyBaloney.St2.Client
 {
@@ -25,10 +23,16 @@ namespace TonyBaloney.St2.Client
 		/// <summary>	URL of the API. </summary>
 		private Uri _apiUrl;
 
+		/// <summary>	The token. </summary>
 		private TokenResponse _token;
 
-		/// <summary>	Initializes a new instance of the St2.Client.St2Client class. </summary>
-		/// <param name="url">	   	URL of the API. </param>
+		/// <summary>
+		/// 	Initializes a new instance of the TonyBaloney.St2.Client.St2Client class.
+		/// </summary>
+		/// <exception cref="ArgumentException">Thrown when one or more arguments have unsupported or
+		/// 									illegal values. </exception>
+		/// <param name="authUrl"> 	URL of the authentication endpoint. </param>
+		/// <param name="apiUrl">  	URL of the API. </param>
 		/// <param name="username">	The username. </param>
 		/// <param name="password">	The password. </param>
 		public St2Client(string authUrl, string apiUrl, string username, string password)
@@ -55,8 +59,9 @@ namespace TonyBaloney.St2.Client
 			Executions = new ExecutionsApi(this);
 		}
 
-		/// <summary>	Refresh the token. </summary>
+		/// <summary>	Refresh the auth token. </summary>
 		/// <returns>	A Task. </returns>
+		/// <seealso cref="M:TonyBaloney.St2.Client.ISt2Client.RefreshTokenAsync()"/>
 		public async Task RefreshTokenAsync()
 		{
 			using (var client = new HttpClient())
@@ -73,10 +78,11 @@ namespace TonyBaloney.St2.Client
 			}
 		}
 
-		/// <summary>	Gets API request asynchronously. </summary>
-		/// <typeparam name="TResponseType">	Type of the response type. </typeparam>
-		/// <param name="url">	URL of the document. </param>
-		/// <returns>	The TPL task. </returns>
+		/// <summary>	Make an asynchronous GET request to the API. </summary>
+		/// <typeparam name="TResponseType">	Expected Type of the response. </typeparam>
+		/// <param name="url">	URL of the GET request. </param>
+		/// <returns>	The Typed response. </returns>
+		/// <seealso cref="M:TonyBaloney.St2.Client.ISt2Client.GetApiRequestAsync{TResponseType}(string)"/>
 		public async Task<TResponseType> GetApiRequestAsync<TResponseType>(string url)
 		{
 			using (var client = new HttpClient())
@@ -90,6 +96,13 @@ namespace TonyBaloney.St2.Client
 			}
 		}
 
+		/// <summary>	Make an asynchronous POST request to the API. </summary>
+		/// <typeparam name="TResponseType">	Expected Type of the response. </typeparam>
+		/// <typeparam name="TRequestType"> 	Expected Type of of the request message. </typeparam>
+		/// <param name="url">	  	URL of the POST request. </param>
+		/// <param name="request">	The request. </param>
+		/// <returns>	The Typed response. </returns>
+		/// <seealso cref="M:TonyBaloney.St2.Client.ISt2Client.PostApiRequestAsync{TResponseType,TRequestType}(string,TRequestType)"/>
 		public async Task<TResponseType> PostApiRequestAsync<TResponseType, TRequestType>(string url, TRequestType request)
 		{
 			using (var client = new HttpClient())
@@ -103,6 +116,10 @@ namespace TonyBaloney.St2.Client
 			}
 		}
 
+		/// <summary>	Make a DELETE request to the API. </summary>
+		/// <param name="url">	URL of the request. </param>
+		/// <returns>	A Task. </returns>
+		/// <seealso cref="M:TonyBaloney.St2.Client.ISt2Client.DeleteApiRequestAsync(string)"/>
 		public async Task DeleteApiRequestAsync(string url)
 		{
 			using (var client = new HttpClient())
@@ -114,10 +131,19 @@ namespace TonyBaloney.St2.Client
 			}
 		}
 
+		/// <summary>	Accessor for the Actions related methods. </summary>
+		/// <value>	The actions accessor. </value>
+		/// <seealso cref="P:TonyBaloney.St2.Client.ISt2Client.Actions"/>
 		public IActionsApi Actions { get; private set; }
 
+		/// <summary>	Accessor for the Packs related methods. </summary>
+		/// <value>	The Packs accessor. </value>
+		/// <seealso cref="P:TonyBaloney.St2.Client.ISt2Client.Packs"/>
 		public IPacksApi Packs { get; private set; }
 
+		/// <summary>	Accessor for the Executions related methods. </summary>
+		/// <value>	The Executions accessor. </value>
+		/// <seealso cref="P:TonyBaloney.St2.Client.ISt2Client.Executions"/>
 		public IExecutionsApi Executions { get; private set; }
 
 		public void Dispose()
