@@ -43,5 +43,6 @@ on_success:
   - git config --global user.name "Anthony Shaw"
   - git config --global credential.helper store
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git add docs/St2.Client.md
   - git commit -m "Updated docs [skip appveyor]"
   - git push
