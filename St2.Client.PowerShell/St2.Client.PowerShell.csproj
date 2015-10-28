@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClientCmdlet.cs" />
+    <Compile Include="InvokeActionCmdlet.cs" />
     <Compile Include="RemoveActionCmdlet.cs" />
     <Compile Include="GetExecutionsCmdlet.cs" />
     <Compile Include="GetActionsCmdlet.cs" />

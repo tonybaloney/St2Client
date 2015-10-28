@@ -17,6 +17,8 @@ namespace TonyBaloney.St2.Client.Apis
 		/// <returns>	A List of <see cref="Action"/>. </returns>
 		Task<IList<Action>> GetActionsForPackAsync(string pack);
 
+		Task<IList<Action>> GetActionsForPackByNameAsync(string pack, string name);
+
 		/// <summary>	Gets actions by name. </summary>
 		/// <param name="name">	The action name. </param>
 		/// <returns>	A List of <see cref="Action"/>. </returns>

@@ -41,5 +41,20 @@ namespace TonyBaloney.St2.Client.Apis
 		{
 			return await _host.GetApiRequestAsync<IList<Execution>>("/v1/executions?action="+actionName +"&limit="+limit);
 		}
+
+		/// <summary>	Executes the action. </summary>
+		/// <param name="actionName">	Name of the action. </param>
+		/// <param name="parameters">	The parameters for the given action. </param>
+		/// <returns>	The resulting execution; </returns>
+		/// <seealso cref="M:TonyBaloney.St2.Client.Apis.IExecutionsApi.ExecuteActionAsync(string,Dictionary{string,string})"/>
+		public async Task<Execution> ExecuteActionAsync(string actionName, Dictionary<string, string> parameters)
+		{
+			ExecuteActionRequest request = new ExecuteActionRequest
+			{
+				action = actionName,
+				parameters = parameters
+			};
+			return await _host.PostApiRequestAsync<Execution, ExecuteActionRequest>("/v1/executions/", request);
+		}
 	}
 }

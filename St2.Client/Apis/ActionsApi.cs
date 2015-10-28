@@ -40,6 +40,11 @@ namespace TonyBaloney.St2.Client.Apis
 			return await _host.GetApiRequestAsync<List<Action>>("/v1/actions?pack=" + pack);
 		}
 
+		public async Task<IList<Action>> GetActionsForPackByNameAsync(string pack, string name)
+		{
+			return await _host.GetApiRequestAsync<List<Action>>("/v1/actions?pack=" + pack + "&name=" + name);
+		}
+
 		/// <summary>	Gets actions by name. </summary>
 		/// <param name="name">	The action name. </param>
 		/// <returns>	A List of Actions<see cref="Action"/>. </returns>

@@ -24,18 +24,24 @@ namespace TonyBaloney.St2.Client.PowerShell
 			try
 			{
 				IList<Action> actions;
+				if (Pack != null)
+					PackName = Pack.name;
 
 				if (!String.IsNullOrWhiteSpace(PackName))
-					actions = Connection.ApiClient.Actions.GetActionsForPackAsync(PackName).Result;
-				else if (Pack != null)
-					actions = Connection.ApiClient.Actions.GetActionsForPackAsync(Pack.name).Result;
+				{
+					if (!String.IsNullOrWhiteSpace(Name))
+						actions = Connection.ApiClient.Actions.GetActionsForPackByNameAsync(PackName, Name).Result;
+					else
+					{
+						actions = Connection.ApiClient.Actions.GetActionsForPackByNameAsync(PackName, Name).Result;
+					}
+				}
 				else if (!String.IsNullOrWhiteSpace(Name))
 					actions = Connection.ApiClient.Actions.GetActionsByNameAsync(Name).Result;
 				else
 				{
 					actions = Connection.ApiClient.Actions.GetActionsAsync().Result;
 				}
-
 
 				foreach (var action in actions)
 				{
