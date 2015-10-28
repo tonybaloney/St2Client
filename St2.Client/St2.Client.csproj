@@ -53,15 +53,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apis\ActionsApi.cs" />
+    <Compile Include="Apis\ExecutionsApi.cs" />
     <Compile Include="Apis\IActionsApi.cs" />
+    <Compile Include="Apis\IExecutionsApi.cs" />
     <Compile Include="Apis\IPacksApi.cs" />
     <Compile Include="Apis\PacksApi.cs" />
+    <Compile Include="Models\ExecutionContext.cs" />
+    <Compile Include="Models\PayloadSchema.cs" />
+    <Compile Include="Models\Rule.cs" />
+    <Compile Include="Models\RuleType.cs" />
+    <Compile Include="Models\Runner.cs" />
+    <Compile Include="Models\RunnerEnvironment.cs" />
+    <Compile Include="Models\RunnerParameter.cs" />
+    <Compile Include="Models\Trigger.cs" />
     <Compile Include="AuthExtensions.cs" />
     <Compile Include="ISt2Client.cs" />
     <Compile Include="Models\Action.cs" />
     <Compile Include="Models\ActionParameter.cs" />
+    <Compile Include="Models\Execution.cs" />
     <Compile Include="Models\Pack.cs" />
     <Compile Include="Models\TokenResponse.cs" />
+    <Compile Include="Models\TriggerInstance.cs" />
+    <Compile Include="Models\TriggerType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="St2Client.cs" />
   </ItemGroup>

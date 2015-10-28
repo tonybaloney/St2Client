@@ -24,6 +24,8 @@ namespace TonyBaloney.St2.Client
 
 		IPacksApi Packs { get; }
 
+		IExecutionsApi Executions { get; }
+
 		void Dispose();
 	}
 }

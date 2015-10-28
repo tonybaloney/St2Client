@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClientCmdlet.cs" />
+    <Compile Include="GetExecutionsCmdlet.cs" />
     <Compile Include="GetActionsCmdlet.cs" />
     <Compile Include="GetPacksCmdlet.cs" />
     <Compile Include="NewSt2ClientConnection.cs" />

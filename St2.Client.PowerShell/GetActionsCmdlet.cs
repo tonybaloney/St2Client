@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Management.Automation;
+using TonyBaloney.St2.Client.Models;
 
 namespace TonyBaloney.St2.Client.PowerShell
 {
@@ -10,7 +11,9 @@ namespace TonyBaloney.St2.Client.PowerShell
 	public class GetActionsCmdlet
 		: BaseClientCmdlet
 	{
-		[Parameter(Mandatory = false, HelpMessage = "Actions for a particular pack")] public string Pack;
+		[Parameter(Mandatory = false, HelpMessage = "Actions for a particular pack")] public Pack Pack;
+
+		[Parameter(Mandatory = false, HelpMessage = "Actions for a particular pack")] public string PackName;
 
 		[Parameter(Mandatory = false, HelpMessage = "Actions with name")] public string Name;
 
@@ -22,8 +25,10 @@ namespace TonyBaloney.St2.Client.PowerShell
 			{
 				IList<Action> actions;
 
-				if (!String.IsNullOrWhiteSpace(Pack))
-					actions = Connection.ApiClient.Actions.GetActionsForPackAsync(Pack).Result;
+				if (!String.IsNullOrWhiteSpace(PackName))
+					actions = Connection.ApiClient.Actions.GetActionsForPackAsync(PackName).Result;
+				else if (Pack != null)
+					actions = Connection.ApiClient.Actions.GetActionsForPackAsync(Pack.name).Result;
 				else if (!String.IsNullOrWhiteSpace(Name))
 					actions = Connection.ApiClient.Actions.GetActionsByNameAsync(Name).Result;
 				else

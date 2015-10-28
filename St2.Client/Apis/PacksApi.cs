@@ -19,5 +19,15 @@ namespace TonyBaloney.St2.Client.Apis
 		{
 			return await _host.GetApiRequestAsync<List<Pack>>("/v1/packs");
 		}
+
+		public async Task<IList<Pack>> GetPacksByNameAsync(string packName)
+		{
+			return await _host.GetApiRequestAsync<List<Pack>>("/v1/packs?name=" + packName);
+		}
+
+		public async Task<IList<Pack>> GetPacksByIdAsync(string packId)
+		{
+			return await _host.GetApiRequestAsync<List<Pack>>("/v1/packs?ref=" + packId);
+		}
 	}
 }

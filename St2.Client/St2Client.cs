@@ -52,6 +52,7 @@ namespace TonyBaloney.St2.Client
 
 			Actions = new ActionsApi(this);
 			Packs = new PacksApi(this);
+			Executions = new ExecutionsApi(this);
 		}
 
 		/// <summary>	Refresh the token. </summary>
@@ -116,6 +117,8 @@ namespace TonyBaloney.St2.Client
 		public IActionsApi Actions { get; private set; }
 
 		public IPacksApi Packs { get; private set; }
+
+		public IExecutionsApi Executions { get; private set; }
 
 		public void Dispose()
 		{
