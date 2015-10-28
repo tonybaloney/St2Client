@@ -10,7 +10,7 @@ A StackStorm API client for C#.NET including a PowerShell module
 ### Documentation
  
 The docs are available on readthedocs.org 
-[![RTD](https://readthedocs.org/projects/st2client/badge/?version=latest)](http://st2client.readthedocs.org/en/latest/)
+[![RTD](https://readthedocs.org/projects/st2client/badge/?version=latest)](http://st2client.readthedocs.org/en/latest/README/)
 
 ### Download packages
 The .NET client is available on nuget.org
