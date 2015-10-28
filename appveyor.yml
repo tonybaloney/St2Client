@@ -47,3 +47,4 @@ on_success:
   - git add docs/St2.Client.md
   - git commit -m "Updated docs [skip appveyor]"
   - git push origin HEAD:master
+  - ps: Invoke-WebRequest -Uri "https://readthedocs.org/build/st2client" -Method Post
