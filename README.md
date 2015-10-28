@@ -7,8 +7,16 @@ A StackStorm API client for C#.NET including a PowerShell module
 
 ## Using the C#.NET client
 
+### Documentation
+ 
+The docs are available on readthedocs.org 
+[![RTD](https://readthedocs.org/projects/st2client/badge/?version=latest)](http://st2client.readthedocs.org/en/latest/)
+
+### Download packages
 The .NET client is available on nuget.org
 * Release - [![NuGet](https://img.shields.io/nuget/v/St2.Client.svg)](https://www.nuget.org/packages/St2.Client/)
+
+### Example
 
 ```csharp
 St2Client apiClient = new St2Client("http://12.3.2.3:9100", "http://12.3.2.3:9101", "testu", "testp");
