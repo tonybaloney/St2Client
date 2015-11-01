@@ -18,6 +18,7 @@ build:
   publish_nuget: true
 after_build:
   - ps: .\xmldoc2md\xmldoc2md.ps1 -xml "C:\projects\st2client\St2.Client\bin\Release\St2.Client.xml" -xsl "C:\projects\st2client\xmldoc2md\xmldoc2md.xsl" -output "C:\projects\st2client\docs\St2.Client.md"
+  - ps: .\DocumentPowerShell.ps1
 after_test:
   - ps: .\nuget\pack.ps1
 
