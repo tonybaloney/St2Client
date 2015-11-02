@@ -15,8 +15,8 @@ foreach ($command in $commands){
 $modPath = $Env:PSModulePath.split(';')[1]
 mkdir "$($modPath)\St2.Client"
 
-if ((Test-Path "C:\C:\Users\appveyor\AppData\Local\PackageManagement\") -eq 0){
-	mkdir "C:\C:\Users\appveyor\AppData\Local\PackageManagement\"
+if ((Test-Path "C:\Users\appveyor\AppData\Local\PackageManagement") -eq 0){
+	mkdir "C:\Users\appveyor\AppData\Local\PackageManagement"
 }
 if ((Test-Path "C:\Users\appveyor\AppData\Local\PackageManagement\ProviderAssemblies") -eq 0){
 	mkdir "C:\Users\appveyor\AppData\Local\PackageManagement\ProviderAssemblies"
