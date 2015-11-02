@@ -11,4 +11,4 @@ foreach ($command in $commands){
 	.\Get-HelpByMarkdown.ps1 $command.name | Set-Content -Encoding utf8 .\docs\powershell\$command.md
 }
 
-Publish-Module -Path .\St2.Client.PowerShell\bin\Release\St2.Client.psd1 -NuGetApiKey $apiKey
+Publish-Module -Path .\St2.Client.PowerShell\bin\Release\ -NuGetApiKey $apiKey
