@@ -1,4 +1,6 @@
-﻿# Get-St2Actions
+﻿Get-St2Actions
+===================
+
 ## SYNOPSIS
 Get the available actions in a pack
 

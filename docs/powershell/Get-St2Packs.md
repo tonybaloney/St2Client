@@ -1,4 +1,6 @@
-﻿# Get-St2Packs
+﻿Get-St2Packs
+===================
+
 ## SYNOPSIS
 Get the packs installed in this StackStorm database
 

@@ -1,4 +1,6 @@
-﻿# New-St2ClientConnection
+﻿New-St2ClientConnection
+===================
+
 ## SYNOPSIS
 Create a new connection to a StackStorm (St2) API endpoint.
 
