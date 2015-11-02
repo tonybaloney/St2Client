@@ -15,14 +15,14 @@ foreach ($command in $commands){
 $modPath = $Env:PSModulePath.split(';')[1]
 mkdir "$($modPath)\St2.Client"
 
-if ((Test-Path "C:\Program Files\PackageManagement") -eq 0){
-	mkdir "C:\Program Files\PackageManagement"
+if ((Test-Path "C:\C:\Users\appveyor\AppData\Local\PackageManagement\") -eq 0){
+	mkdir "C:\C:\Users\appveyor\AppData\Local\PackageManagement\"
 }
-if ((Test-Path "C:\Program Files\PackageManagement\ProviderAssemblies") -eq 0){
-	mkdir "C:\Program Files\PackageManagement\ProviderAssemblies"
+if ((Test-Path "C:\Users\appveyor\AppData\Local\PackageManagement\ProviderAssemblies") -eq 0){
+	mkdir "C:\Users\appveyor\AppData\Local\PackageManagement\ProviderAssemblies"
 }
 
-Copy-Item .\nuget\nuget-anycpu.exe "C:\Program Files\PackageManagement\ProviderAssemblies\"
+Copy-Item .\nuget\nuget-anycpu.exe "C:\Users\appveyor\AppData\Local\PackageManagement\ProviderAssemblies\NuGet-anycpu.exe"
 
 # Install the module
 Copy-Item .\St2.Client.PowerShell\bin\Release\*.* "$($modPath)\St2.Client"
