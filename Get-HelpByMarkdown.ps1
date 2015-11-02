@@ -115,7 +115,9 @@ try {
     $full = Get-Help $Name -Full
 
 @"
-# $($full.Name)
+$($full.Name)
+===================
+
 ## SYNOPSIS
 $($full.Synopsis)
 
