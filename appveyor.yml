@@ -18,7 +18,7 @@ build:
   publish_nuget: true
 after_build:
   - ps: .\xmldoc2md\xmldoc2md.ps1 -xml "C:\projects\st2client\St2.Client\bin\Release\St2.Client.xml" -xsl "C:\projects\st2client\xmldoc2md\xmldoc2md.xsl" -output "C:\projects\st2client\docs\St2.Client.md"
-  - ps: .\DocumentPowerShell.ps1
+  - ps: .\DocumentPowerShell.ps1 $($env:powershell_key)
 after_test:
   - ps: .\nuget\pack.ps1
 
@@ -38,6 +38,8 @@ deploy:
 environment:
   access_token:
     secure: O/sXyJYB0lM0WHQmuoG1LjfB/w9pwx8Pt3HmS13N9MXP7UqbY4/aJvJwemP0tlp2
+  powershell_key:
+    secure: kfybY3JPmM+VtiK6Uqb0EAhuKVycs7Wa3oaYLLZswT9XfPN34210+FJ7yCuWE7mT
 
 on_success:
   - git config --global user.email "anthony.p.shaw@gmail.com"
