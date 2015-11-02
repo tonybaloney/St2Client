@@ -22,10 +22,10 @@ if ((Test-Path "C:\Users\appveyor\AppData\Local\PackageManagement\ProviderAssemb
 	mkdir "C:\Users\appveyor\AppData\Local\PackageManagement\ProviderAssemblies"
 }
 
-Copy-Item .\nuget\nuget-anycpu.exe "C:\Users\appveyor\AppData\Local\PackageManagement\ProviderAssemblies\NuGet-anycpu.exe"
+Copy-Item .\nuget\nuget-anycpu.exe "C:\Users\appveyor\AppData\Local\PackageManagement\ProviderAssemblies\NuGet-anycpu.exe" -Verbose
 
 # Install the module
-Copy-Item .\St2.Client.PowerShell\bin\Release\*.* "$($modPath)\St2.Client"
+Copy-Item .\St2.Client.PowerShell\bin\Release\*.* "$($modPath)\St2.Client" -Verbose
 
 # publish the module
 Publish-Module -Name St2.Client -NuGetApiKey $apiKey
