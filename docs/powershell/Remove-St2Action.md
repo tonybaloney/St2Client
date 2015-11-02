@@ -1,4 +1,6 @@
-﻿# Remove-St2Action
+﻿Remove-St2Action
+===================
+
 ## SYNOPSIS
 Delete an existing action from a pack
 

@@ -1,4 +1,6 @@
-﻿# Invoke-St2Action
+﻿Invoke-St2Action
+===================
+
 ## SYNOPSIS
 Invoke (run) an action within a pack
 

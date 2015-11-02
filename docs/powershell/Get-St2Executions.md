@@ -1,4 +1,6 @@
-﻿# Get-St2Executions
+﻿Get-St2Executions
+===================
+
 ## SYNOPSIS
 Get a list of executions (run jobs)
 
