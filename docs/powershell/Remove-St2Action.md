@@ -1,60 +1,73 @@
 ﻿# Remove-St2Action
 ## SYNOPSIS
-
-Remove-St2Action -Id <string> [-Connection <St2ClientConnection>] [<CommonParameters>]
-
-Remove-St2Action -Action <Action> [-Connection <St2ClientConnection>] [<CommonParameters>]
-
+Delete an existing action from a pack
 
 ## SYNTAX
 ```powershell
-syntaxItem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+Remove-St2Action [-Connection <St2ClientConnection>] -Id <String> [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 
-----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-
-{@{name=Remove-St2Action; CommonParameters=True; WorkflowCommonParameters=False; parameter=System.Object[]}, @{name=Remove-St2Action; CommonParameters=True; WorkflowCommonParameters=False; parameter=System.Object[]}}
+Remove-St2Action [-Connection <St2ClientConnection>] -Action <Action> [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
 
 ## PARAMETERS
-### -Action &lt;Action&gt;
-Action
-```
-Position?                    Named
-Accept pipeline input?       false
-Parameter set name           ByObj
-Aliases                      None
-Dynamic?                     false
-```
- 
 ### -Connection &lt;St2ClientConnection&gt;
-The StackStorm Connection created by New-St2ClientConnection
+
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       true (ByPropertyName)
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -Id &lt;string&gt;
-Actions Id
+### -Id &lt;String&gt;
+
 ```
-Position?                    Named
+Required?                    true
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           ById
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
+```
+ 
+### -InformationAction &lt;ActionPreference&gt;
+
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -InformationVariable &lt;String&gt;
+
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -Action &lt;Action&gt;
+
+```
+Required?                    true
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
 ```
 
 ## INPUTS
-TonyBaloney.St2.Client.PowerShell.St2ClientConnection
 
 
 ## OUTPUTS
-System.Object
+
 
 ## NOTES
 
