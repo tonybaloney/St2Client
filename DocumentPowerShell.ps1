@@ -10,5 +10,7 @@ if((Test-Path ".\docs\powershell\") -eq 0){
 foreach ($command in $commands){
 	.\Get-HelpByMarkdown.ps1 $command.name | Set-Content -Encoding utf8 .\docs\powershell\$command.md
 }
-
-Publish-Module -Path .\St2.Client.PowerShell\bin\Release\ -NuGetApiKey $apiKey
+$modPath = $Env:PSModulePath.split(';')[1]
+mkdir "$($modPath)\St2.Client"
+Copy-Item .\St2.Client.PowerShell\bin\Release\*.* "$($modPath)\St2.Client"
+Publish-Module -Name St2.Client -NuGetApiKey $apiKey
