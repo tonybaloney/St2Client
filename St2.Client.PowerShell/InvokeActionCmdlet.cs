@@ -9,6 +9,8 @@ namespace TonyBaloney.St2.Client.PowerShell
 {
 	using Action = Models.Action;
 
+	/// <summary>	An invoke action cmdlet. </summary>
+	/// <seealso cref="T:TonyBaloney.St2.Client.PowerShell.BaseClientCmdlet"/>
 	[Cmdlet(VerbsLifecycle.Invoke, "St2Action")]
 	public class InvokeActionCmdlet
 		: BaseClientCmdlet
