@@ -1,72 +1,97 @@
 ﻿# Invoke-St2Action
 ## SYNOPSIS
-
-Invoke-St2Action -Parameters <hashtable> -ActionName <string> [-Connection <St2ClientConnection>] [<CommonParameters>]
-
-Invoke-St2Action -Parameters <hashtable> -Action <Action> [-Connection <St2ClientConnection>] [<CommonParameters>]
-
+Invoke (run) an action within a pack
 
 ## SYNTAX
 ```powershell
-syntaxItem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+Invoke-St2Action [-Connection <St2ClientConnection>] -Parameters <Hashtable> -ActionName <String> [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 
-----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-
-{@{name=Invoke-St2Action; CommonParameters=True; WorkflowCommonParameters=False; parameter=System.Object[]}, @{name=Invoke-St2Action; CommonParameters=True; WorkflowCommonParameters=False; parameter=System.Object[]}}
+Invoke-St2Action [-Connection <St2ClientConnection>] -Parameters <Hashtable> -Action <Action> [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
 
 ## PARAMETERS
-### -Action &lt;Action&gt;
-The action to execute
-```
-Position?                    Named
-Accept pipeline input?       false
-Parameter set name           byObj
-Aliases                      None
-Dynamic?                     false
-```
- 
-### -ActionName &lt;string&gt;
-The name of the action to execute
-```
-Position?                    Named
-Accept pipeline input?       false
-Parameter set name           byName
-Aliases                      None
-Dynamic?                     false
-```
- 
 ### -Connection &lt;St2ClientConnection&gt;
-The StackStorm Connection created by New-St2ClientConnection
+The connection object (defaults to the one stored in the session)
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       true (ByPropertyName)
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -Parameters &lt;hashtable&gt;
-Action execution parameters
+### -Parameters &lt;Hashtable&gt;
+Collection of parameters for the given action, each a Key-value-pair with the variable and the value.
 ```
-Position?                    Named
+Required?                    true
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
+```
+ 
+### -ActionName &lt;String&gt;
+The name of the action to run, including the pack name
+```
+Required?                    true
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -InformationAction &lt;ActionPreference&gt;
+
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -InformationVariable &lt;String&gt;
+
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -Action &lt;Action&gt;
+The action object, from Get-St2Actions
+```
+Required?                    true
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
 ```
 
 ## INPUTS
-TonyBaloney.St2.Client.PowerShell.St2ClientConnection
 
 
 ## OUTPUTS
-System.Object
+
 
 ## NOTES
 
 
 ## EXAMPLES
+### Run an action by name
+```powershell
+Invoke-St2Action -ActionName "libcloud.list_vms" -Parameters @{"credentials"="my-aws"}
+```
+
+ 
+### Run an action by reference
+```powershell
+$action = Get-St2Actions -PackName "libcloud" -Name "list_vms"
+```
+
+

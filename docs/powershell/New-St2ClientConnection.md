@@ -1,78 +1,90 @@
 ﻿# New-St2ClientConnection
 ## SYNOPSIS
-
-New-St2ClientConnection -Username <string> -Password <string> -ApiUrl <string> -AuthApiUrl <string> [-Name <string>] [<CommonParameters>]
-
+Create a new connection to a StackStorm (St2) API endpoint.
 
 ## SYNTAX
 ```powershell
-syntaxItem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-
-----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-
-{@{name=New-St2ClientConnection; CommonParameters=True; WorkflowCommonParameters=False; parameter=System.Object[]}}
+New-St2ClientConnection -Username <String> -Password <String> [-Name <String>] -ApiUrl <String> -AuthApiUrl <String> [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-
+Create a new connection to a StackStorm (St2) API endpoint by authenticating with a username/password credential and gathering an OAuth token to use in subsequent requests. Connections will be saved to the current session so you do not need to specify the -Connection parameter with each request.
 
 ## PARAMETERS
-### -ApiUrl &lt;string&gt;
-The URL of the API
+### -Username &lt;String&gt;
+The username to authenticate with StackStorm
 ```
-Position?                    Named
+Required?                    true
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -AuthApiUrl &lt;string&gt;
-The URL of the Auth API
+### -Password &lt;String&gt;
+The password to authenticate with StackStorm
 ```
-Position?                    Named
+Required?                    true
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -Name &lt;string&gt;
-Name to identify this connection
+### -Name &lt;String&gt;
+The name of your connection (optional)
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -Password &lt;string&gt;
+### -ApiUrl &lt;String&gt;
+The URL of the API, typically http(s)://(ip):9101/
+```
+Required?                    true
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -AuthApiUrl &lt;String&gt;
+The URL of the Authentication API, typically http(s)://(ip):9100/
+```
+Required?                    true
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -InformationAction &lt;ActionPreference&gt;
 
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -Username &lt;string&gt;
+### -InformationVariable &lt;String&gt;
 
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
 
 ## INPUTS
-None
 
 
 ## OUTPUTS
-TonyBaloney.St2.Client.PowerShell.St2ClientConnection
 
 
 ## NOTES

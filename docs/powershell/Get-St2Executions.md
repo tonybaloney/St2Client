@@ -1,70 +1,94 @@
 ﻿# Get-St2Executions
 ## SYNOPSIS
-
-Get-St2Executions [-Connection <St2ClientConnection>] [-Limit <int>] [-ActionName <string>] [-Action <Action>] [<CommonParameters>]
-
+Get a list of executions (run jobs)
 
 ## SYNTAX
 ```powershell
-syntaxItem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-
-----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-
-{@{name=Get-St2Executions; CommonParameters=True; WorkflowCommonParameters=False; parameter=System.Object[]}}
+Get-St2Executions [-Connection <St2ClientConnection>] [-Limit <Int32>] [-ActionName <String>] [-Action <Action>] [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
 
 ## PARAMETERS
-### -Action &lt;Action&gt;
-Show executions for a particular action
-```
-Position?                    Named
-Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
-```
- 
-### -ActionName &lt;string&gt;
-Show executions for a particular action
-```
-Position?                    Named
-Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
-```
- 
 ### -Connection &lt;St2ClientConnection&gt;
-The StackStorm Connection created by New-St2ClientConnection
+The connection object (defaults to the one stored in the session)
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       true (ByPropertyName)
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -Limit &lt;int&gt;
-Limit the number of results
+### -Limit &lt;Int32&gt;
+Limit the number of returned results
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value                5
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
+```
+ 
+### -ActionName &lt;String&gt;
+The name of the action, e.g. "libcloud.list_vms"
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -Action &lt;Action&gt;
+The Action object returned by Get-St2Actions
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -InformationAction &lt;ActionPreference&gt;
+
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -InformationVariable &lt;String&gt;
+
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
 ```
 
 ## INPUTS
-TonyBaloney.St2.Client.PowerShell.St2ClientConnection
 
 
 ## OUTPUTS
-System.Object
+
 
 ## NOTES
 
 
 ## EXAMPLES
+### Example 1
+```powershell
+$MyPack = Get-St2Packs -Name "example"
+
+foreach($action in $actions){
+  Write-Output "Getting executions for action $action.name"
+  Get-St2Executions -Action $action -Connection $conn
+}
+```
+
+

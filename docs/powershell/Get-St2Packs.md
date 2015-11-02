@@ -1,16 +1,10 @@
 ﻿# Get-St2Packs
 ## SYNOPSIS
-
-Get-St2Packs [-Connection <St2ClientConnection>] [-Id <string>] [-Name <string>] [<CommonParameters>]
-
+Get the packs installed in this StackStorm database
 
 ## SYNTAX
 ```powershell
-syntaxItem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-
-----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-
-{@{name=Get-St2Packs; CommonParameters=True; WorkflowCommonParameters=False; parameter=System.Object[]}}
+Get-St2Packs [-Connection <St2ClientConnection>] [-Id <String>] [-Name <String>] [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -18,43 +12,73 @@ syntaxItem
 
 ## PARAMETERS
 ### -Connection &lt;St2ClientConnection&gt;
-The StackStorm Connection created by New-St2ClientConnection
+The connection object (defaults to the one stored in the session)
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       true (ByPropertyName)
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -Id &lt;string&gt;
-Packs with ID
+### -Id &lt;String&gt;
+
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -Name &lt;string&gt;
-Packs with name
+### -Name &lt;String&gt;
+
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
+```
+ 
+### -InformationAction &lt;ActionPreference&gt;
+
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -InformationVariable &lt;String&gt;
+
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
 ```
 
 ## INPUTS
-TonyBaloney.St2.Client.PowerShell.St2ClientConnection
 
 
 ## OUTPUTS
-System.Object
+
 
 ## NOTES
 
 
 ## EXAMPLES
+### Example 1
+```powershell
+$MyPack = Get-St2Packs -Name "example"
+
+foreach($action in $actions){
+  Write-Output "Getting executions for action $action.name"
+  Get-St2Executions -Action $action -Connection $conn
+}
+```
+
+
