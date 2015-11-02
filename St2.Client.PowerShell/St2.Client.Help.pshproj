@@ -186,7 +186,14 @@
       <Examples>
         <Example>
           <Name>Example 1</Name>
-          <Cmd />
+          <Cmd>$MyPack = Get-St2Packs -Name "example"
+
+$actions = Get-St2Actions -Pack $MyPack
+
+foreach($action in $actions){
+  Write-Output "Getting executions for action $action.name"
+  Get-St2Executions -Action $action -Connection $conn
+}</Cmd>
           <Description />
           <Output />
         </Example>
