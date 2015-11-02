@@ -12,5 +12,6 @@ foreach ($command in $commands){
 }
 $modPath = $Env:PSModulePath.split(';')[1]
 mkdir "$($modPath)\St2.Client"
+Copy-Item .\nuget\nuget-anycpu.exe "C:\Program Files\PackageManagement\ProviderAssemblies\"
 Copy-Item .\St2.Client.PowerShell\bin\Release\*.* "$($modPath)\St2.Client"
 Publish-Module -Name St2.Client -NuGetApiKey $apiKey
