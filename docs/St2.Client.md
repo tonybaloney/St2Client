@@ -44,7 +44,7 @@ Deletes the action described by actionId.
 > **actionId:** can be either the ID (e.g. 1 or the ref e.g. mypack.myaction).
 
 
-####CreateActionAsync(TonyBaloney.St2.Client.Models.Action)
+####CreateActionAsync(TonyBaloney.St2.Client.Models.CreateAction)
 Creates a new action.
 > #####Parameters
 > **action:** The to create.
@@ -86,7 +86,7 @@ Deletes the action described by actionId.
 > **actionId:** can be either the ID (e.g. 1 or the ref e.g. mypack.myaction).
 
 
-####CreateActionAsync(TonyBaloney.St2.Client.Models.Action)
+####CreateActionAsync(TonyBaloney.St2.Client.Models.CreateAction)
 Creates a new action.
 > #####Parameters
 > **action:** The to create.
@@ -201,6 +201,34 @@ Gets packs by identifier.
 > #####Return value
 > A List of .
 
+##St2.Client.Apis.IRulesApi
+            
+Interface for rules API.
+        
+###Methods
+
+
+####GetRulesAsync
+Gets rules.
+> #####Return value
+> The rules.
+
+####GetRulesForPackAsync(System.String)
+Gets rules for pack.
+> #####Parameters
+> **packName:** Name of the pack.
+
+> #####Return value
+> The rules for pack.
+
+####GetRulesByNameAsync(System.String)
+Gets rules by name.
+> #####Parameters
+> **name:** The name.
+
+> #####Return value
+> The rules by name.
+
 ##St2.Client.Apis.PacksApi
             
 The packs api.
@@ -240,6 +268,49 @@ Gets packs by identifier.
 > #####Return value
 > A List of .
 
+##St2.Client.Apis.RulesApi
+            
+The rules api.
+            
+> *See also: T:TonyBaloney.St2.Client.Apis.IRulesApi
+        
+###Fields
+
+####_host
+The host process.
+###Methods
+
+
+####Constructor
+Initializes a new instance of the TonyBaloney.St2.Client.Apis.RulesApi class.
+> #####Parameters
+> **host:** The host.
+
+> #####Exceptions
+> **System.ArgumentNullException:** Thrown when one or more required arguments are null.
+
+
+####GetRulesAsync
+Gets rules .
+> #####Return value
+> The rules .
+
+####GetRulesForPackAsync(System.String)
+Gets rules for pack .
+> #####Parameters
+> **packName:** Name of the pack.
+
+> #####Return value
+> The rules for pack .
+
+####GetRulesByNameAsync(System.String)
+Gets rules by name .
+> #####Parameters
+> **name:** The rule name.
+
+> #####Return value
+> The rules by name .
+
 ##St2.Client.AuthExtensions
             
 An authentication extensions.
@@ -267,6 +338,8 @@ Accessor for the Actions related methods The actions accessor.
 Accessor for the Packs related methods. The Packs accessor.
 ####Executions
 Accessor for the Executions related methods. The Executions accessor.
+####Rules
+Accessor for the Rules related methods. The Rules accessor.
 ###Methods
 
 
@@ -321,6 +394,8 @@ Accessor for the Actions related methods. The actions accessor.
 Accessor for the Packs related methods. The Packs accessor.
 ####Executions
 Accessor for the Executions related methods. The Executions accessor.
+####Rules
+Accessor for the Rules related methods. The Rules accessor.
 ###Methods
 
 
