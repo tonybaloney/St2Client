@@ -20,5 +20,10 @@ namespace TonyBaloney.St2.Client.Apis
 		/// <param name="name">	The name. </param>
 		/// <returns>	The rules by name. </returns>
 		Task<IList<Rule>> GetRulesByNameAsync(string name);
+
+		/// <summary>	Deletes the rule described by ruleId. </summary>
+		/// <param name="ruleId">	Identifier for the rule. </param>
+		/// <returns>	A Task. </returns>
+		Task DeleteRuleAsync(string ruleId);
 	}
 }

@@ -52,6 +52,7 @@
     <Compile Include="GetRulesCmdlet.cs" />
     <Compile Include="InvokeActionCmdlet.cs" />
     <Compile Include="NewActionParameterCmdlet.cs" />
+    <Compile Include="RemoveRuleCmdlet.cs" />
     <Compile Include="RemoveActionCmdlet.cs" />
     <Compile Include="GetExecutionsCmdlet.cs" />
     <Compile Include="GetActionsCmdlet.cs" />

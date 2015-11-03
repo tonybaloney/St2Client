@@ -47,5 +47,14 @@ namespace TonyBaloney.St2.Client.Apis
 		{
 			return await _host.GetApiRequestAsync<IList<Rule>>("/v1/rules?name=" + name);
 		}
+
+		/// <summary>	Deletes the rule described by ruleId. </summary>
+		/// <param name="ruleId">	Identifier for the rule. </param>
+		/// <returns>	A Task. </returns>
+		/// <seealso cref="M:TonyBaloney.St2.Client.Apis.IRulesApi.DeleteRule(string)"/>
+		public async Task DeleteRuleAsync(string ruleId)
+		{
+			await _host.DeleteApiRequestAsync("/v1/rules/" + ruleId);
+		}
 	}
 }
