@@ -6,5 +6,7 @@
 		public string description;
 		public object @default;
 		public bool required;
+		public int order;
+		public bool immutable=false;
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Management.Automation;
+using TonyBaloney.St2.Client.Exceptions;
 
 namespace TonyBaloney.St2.Client.PowerShell
 {
@@ -56,11 +57,16 @@ namespace TonyBaloney.St2.Client.PowerShell
 
 
 			WriteDebug("Trying to login to the REST API");
-			st2ClientConnection.ApiClient.RefreshTokenAsync();
+
 			try
 			{
+				st2ClientConnection.ApiClient.RefreshTokenAsync().Wait(TimeSpan.FromSeconds(15));
+
 				if (st2ClientConnection != null)
 				{
+					if (!st2ClientConnection.ApiClient.HasToken())
+						ThrowTerminatingError(new ErrorRecord(new Exception("Could not login, check credentials and access to the API"), "100", ErrorCategory.AuthenticationError, st2ClientConnection ));
+
 					WriteDebug(string.Format("connection created successfully: {0}", st2ClientConnection));
 					if (string.IsNullOrEmpty(Name))
 					{
@@ -78,12 +84,16 @@ namespace TonyBaloney.St2.Client.PowerShell
 					WriteObject(st2ClientConnection);
 				}
 			}
+			catch (FailedRequestException fre)
+			{
+				ThrowTerminatingError(new ErrorRecord(fre, "-1", ErrorCategory.AuthenticationError, null));
+			}
 			catch (AggregateException ae)
 			{
 				ae.Handle(
 					e =>
 					{
-						ThrowTerminatingError(new ErrorRecord(e, "-1", ErrorCategory.AuthenticationError, st2ClientConnection));
+						ThrowTerminatingError(new ErrorRecord(e, "-1", ErrorCategory.AuthenticationError, null));
 						return true;
 					});
 			}

@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using TonyBaloney.St2.Client.Exceptions;
 using TonyBaloney.St2.Client.Models;
 
 namespace TonyBaloney.St2.Client
@@ -13,6 +14,9 @@ namespace TonyBaloney.St2.Client
 		/// <param name="token"> 	The token. </param>
 		public static void AddXAuthToken(this HttpClient client, TokenResponse token)
 		{
+			if (token == null)
+				throw new InvalidTokenException("Please login first, or could not find a login token.");
+
 			client.DefaultRequestHeaders.Add("x-auth-token", token.token);
 		}
 	}

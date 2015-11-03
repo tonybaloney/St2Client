@@ -60,6 +60,12 @@
     <Compile Include="Apis\IRulesApi.cs" />
     <Compile Include="Apis\PacksApi.cs" />
     <Compile Include="Apis\RulesApi.cs" />
+    <Compile Include="Exceptions\ExceptionFactory.cs" />
+    <Compile Include="Exceptions\FailedRequestException.cs" />
+    <Compile Include="Exceptions\InvalidTokenException.cs" />
+    <Compile Include="Models\NamedActionParameter.cs" />
+    <Compile Include="Models\ParameterType.cs" />
+    <Compile Include="Models\RuleAction.cs" />
     <Compile Include="Models\CreateAction.cs" />
     <Compile Include="Models\ExecuteActionRequest.cs" />
     <Compile Include="Models\ExecutionContext.cs" />
@@ -69,6 +75,7 @@
     <Compile Include="Models\Runner.cs" />
     <Compile Include="Models\RunnerEnvironment.cs" />
     <Compile Include="Models\RunnerParameter.cs" />
+    <Compile Include="Models\RunnerType.cs" />
     <Compile Include="Models\Trigger.cs" />
     <Compile Include="AuthExtensions.cs" />
     <Compile Include="ISt2Client.cs" />

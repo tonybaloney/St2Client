@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClientCmdlet.cs" />
+    <Compile Include="NewActionCmdlet.cs" />
     <Compile Include="GetRulesCmdlet.cs" />
     <Compile Include="InvokeActionCmdlet.cs" />
+    <Compile Include="NewActionParameterCmdlet.cs" />
     <Compile Include="RemoveActionCmdlet.cs" />
     <Compile Include="GetExecutionsCmdlet.cs" />
     <Compile Include="GetActionsCmdlet.cs" />

@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using TonyBaloney.St2.Client.Apis;
 using TonyBaloney.St2.Client.Models;
+using TonyBaloney.St2.Client.Exceptions;
 
 namespace TonyBaloney.St2.Client
 {
@@ -77,9 +78,20 @@ namespace TonyBaloney.St2.Client
 					Convert.ToBase64String(
 						System.Text.ASCIIEncoding.ASCII.GetBytes(
 							string.Format("{0}:{1}", _username, _password))));
-				var response = await client.PostAsync("/tokens", new StringContent(String.Empty));
 
-				_token = await response.Content.ReadAsAsync<TokenResponse>();
+				try
+				{
+					var response = await client.PostAsync("/tokens", new StringContent(String.Empty));
+
+					if (response.IsSuccessStatusCode)
+						_token = await response.Content.ReadAsAsync<TokenResponse>();
+					else
+						throw ExceptionFactory.FailedTokenException(response);
+				}
+				catch (HttpRequestException hre)
+				{
+					throw new FailedRequestException(hre.Message);
+				}
 			}
 		}
 
@@ -95,9 +107,18 @@ namespace TonyBaloney.St2.Client
 				client.BaseAddress = _apiUrl;
 				client.AddXAuthToken(_token);
 
-				var response = await client.GetAsync(url);
-
-				return await response.Content.ReadAsAsync<TResponseType>();
+				try
+				{
+					var response = await client.GetAsync(url);
+					if (response.IsSuccessStatusCode)
+						return await response.Content.ReadAsAsync<TResponseType>();
+					
+					throw ExceptionFactory.FailedGetRequest(response);
+				}
+				catch (HttpRequestException hre)
+				{
+					throw new FailedRequestException(hre.Message);
+				}
 			}
 		}
 
@@ -115,11 +136,18 @@ namespace TonyBaloney.St2.Client
 				client.BaseAddress = _apiUrl;
 				client.AddXAuthToken(_token);
 
-				var response = await client.PostAsync(url, request, new JsonMediaTypeFormatter());
-				if(response.IsSuccessStatusCode)
-					return await response.Content.ReadAsAsync<TResponseType>();
-				else 
-					throw new Exception(await response.Content.ReadAsStringAsync());
+				try
+				{
+					var response = await client.PostAsync(url, request, new JsonMediaTypeFormatter());
+					if (response.IsSuccessStatusCode)
+						return await response.Content.ReadAsAsync<TResponseType>();
+					
+					throw ExceptionFactory.FailedPostRequest(response);
+				}
+				catch (HttpRequestException hre)
+				{
+					throw new FailedRequestException(hre.Message);
+				}
 			}
 		}
 
@@ -134,7 +162,16 @@ namespace TonyBaloney.St2.Client
 				client.BaseAddress = _apiUrl;
 				client.AddXAuthToken(_token);
 
-				await client.DeleteAsync(url);
+				try
+				{
+					var response = await client.DeleteAsync(url);
+					if (!response.IsSuccessStatusCode)
+						throw ExceptionFactory.FailedDeleteRequest(response);
+				}
+				catch (HttpRequestException hre)
+				{
+					throw new FailedRequestException(hre.Message);
+				}
 			}
 		}
 
@@ -160,6 +197,11 @@ namespace TonyBaloney.St2.Client
 		public void Dispose()
 		{
 			// cleanup
+		}
+
+		public bool HasToken()
+		{
+			return _token != null;
 		}
 	}
 }

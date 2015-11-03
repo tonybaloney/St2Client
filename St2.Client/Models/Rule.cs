@@ -10,7 +10,7 @@ namespace TonyBaloney.St2.Client.Models
 		public bool enabled { get; set; }
 		public Trigger trigger { get; set; }
 		public object criteria { get; set; }
-		public Action action { get; set; }
+		public RuleAction action { get; set; }
 		public string pack { get; set; }
 		public RuleType type { get; set; }
 		public string id { get; set; }

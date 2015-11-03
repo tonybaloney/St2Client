@@ -44,5 +44,9 @@ namespace TonyBaloney.St2.Client
 		IRulesApi Rules { get; }
 
 		void Dispose();
+
+		/// <summary>	Query if this object has a token. </summary>
+		/// <returns>	true if token, false if not. </returns>
+		bool HasToken();
 	}
 }
