@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TonyBaloney.St2.Client.Models;
 
 namespace TonyBaloney.St2.Client.Apis
 {
@@ -66,9 +67,9 @@ namespace TonyBaloney.St2.Client.Apis
 		/// <param name="action">	The <see cref="Action"/> to create. </param>
 		/// <returns>	The new action asynchronous. </returns>
 		/// <seealso cref="M:TonyBaloney.St2.Client.Apis.IActionsApi.CreateActionAsync(Action)"/>
-		public async Task<Action> CreateActionAsync(Action action)
+		public async Task<Action> CreateActionAsync(CreateAction action)
 		{
-			return await _host.PostApiRequestAsync<Action, Action>("/v1/actions/", action);
+			return await _host.PostApiRequestAsync<Action, CreateAction>("/v1/actions/", action);
 		}
 	}
 }

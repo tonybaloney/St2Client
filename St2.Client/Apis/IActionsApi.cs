@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using TonyBaloney.St2.Client.Models;
 
 namespace TonyBaloney.St2.Client.Apis
 {
@@ -30,6 +31,6 @@ namespace TonyBaloney.St2.Client.Apis
 
 		/// <summary>	Creates a new action. </summary>
 		/// <param name="action">	The <see cref="Action"/> to create. </param>
-		Task<Action> CreateActionAsync(Action action);
+		Task<Action> CreateActionAsync(CreateAction action);
 	}
 }

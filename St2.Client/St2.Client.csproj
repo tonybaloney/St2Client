@@ -57,7 +57,10 @@
     <Compile Include="Apis\IActionsApi.cs" />
     <Compile Include="Apis\IExecutionsApi.cs" />
     <Compile Include="Apis\IPacksApi.cs" />
+    <Compile Include="Apis\IRulesApi.cs" />
     <Compile Include="Apis\PacksApi.cs" />
+    <Compile Include="Apis\RulesApi.cs" />
+    <Compile Include="Models\CreateAction.cs" />
     <Compile Include="Models\ExecuteActionRequest.cs" />
     <Compile Include="Models\ExecutionContext.cs" />
     <Compile Include="Models\PayloadSchema.cs" />

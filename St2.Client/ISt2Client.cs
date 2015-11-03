@@ -39,6 +39,10 @@ namespace TonyBaloney.St2.Client
 		/// <value>	The Executions accessor. </value>
 		IExecutionsApi Executions { get; }
 
+		/// <summary>	Accessor for the Rules related methods. </summary>
+		/// <value>	The Rules accessor. </value>
+		IRulesApi Rules { get; }
+
 		void Dispose();
 	}
 }

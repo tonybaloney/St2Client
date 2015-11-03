@@ -38,16 +38,20 @@ namespace TonyBaloney.St2.Client
 		public St2Client(string authUrl, string apiUrl, string username, string password)
 		{
 			if (String.IsNullOrWhiteSpace(authUrl))
-				throw new ArgumentException("Argument cannot be null, empty, or composed entirely of whitespace: 'authUrl'.", "authUrl");
+				throw new ArgumentException("Argument cannot be null, empty, or composed entirely of whitespace: 'authUrl'.",
+					"authUrl");
 
 			if (String.IsNullOrWhiteSpace(apiUrl))
-				throw new ArgumentException("Argument cannot be null, empty, or composed entirely of whitespace: 'apiUrl'.", "apiUrl");
+				throw new ArgumentException("Argument cannot be null, empty, or composed entirely of whitespace: 'apiUrl'.",
+					"apiUrl");
 
 			if (String.IsNullOrWhiteSpace(password))
-				throw new ArgumentException("Argument cannot be null, empty, or composed entirely of whitespace: 'password'.", "password");
+				throw new ArgumentException("Argument cannot be null, empty, or composed entirely of whitespace: 'password'.",
+					"password");
 
 			if (String.IsNullOrWhiteSpace(username))
-				throw new ArgumentException("Argument cannot be null, empty, or composed entirely of whitespace: 'username'.", "username");
+				throw new ArgumentException("Argument cannot be null, empty, or composed entirely of whitespace: 'username'.",
+					"username");
 
 			_apiUrl = new Uri(apiUrl);
 			_authUrl = new Uri(authUrl);
@@ -57,6 +61,7 @@ namespace TonyBaloney.St2.Client
 			Actions = new ActionsApi(this);
 			Packs = new PacksApi(this);
 			Executions = new ExecutionsApi(this);
+			Rules = new RulesApi(this);
 		}
 
 		/// <summary>	Refresh the auth token. </summary>
@@ -111,8 +116,10 @@ namespace TonyBaloney.St2.Client
 				client.AddXAuthToken(_token);
 
 				var response = await client.PostAsync(url, request, new JsonMediaTypeFormatter());
-
-				return await response.Content.ReadAsAsync<TResponseType>();
+				if(response.IsSuccessStatusCode)
+					return await response.Content.ReadAsAsync<TResponseType>();
+				else 
+					throw new Exception(await response.Content.ReadAsStringAsync());
 			}
 		}
 
@@ -145,6 +152,10 @@ namespace TonyBaloney.St2.Client
 		/// <value>	The Executions accessor. </value>
 		/// <seealso cref="P:TonyBaloney.St2.Client.ISt2Client.Executions"/>
 		public IExecutionsApi Executions { get; private set; }
+
+		/// <summary>	Accessor for the Rules related methods. </summary>
+		/// <value>	The Rules accessor. </value>
+		public IRulesApi Rules { get; private set; }
 
 		public void Dispose()
 		{
