@@ -28,4 +28,4 @@ Copy-Item .\nuget\nuget-anycpu.exe "C:\Users\appveyor\AppData\Local\PackageManag
 Copy-Item .\St2.Client.PowerShell\bin\Release\*.* "$($modPath)\St2.Client" -Verbose
 
 # publish the module
-Publish-Module -Name St2.Client -NuGetApiKey $apiKey
+Publish-Module -Name St2.Client -NuGetApiKey $apiKey -Confirm
