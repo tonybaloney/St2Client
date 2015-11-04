@@ -2,17 +2,11 @@
 ===================
 
 ## SYNOPSIS
-
-Get-St2Rules [-Connection <St2ClientConnection>] [-PackName <string>] [-Pack <Pack>] [<CommonParameters>]
-
+Gets the rules available
 
 ## SYNTAX
 ```powershell
-syntaxItem                                                                                              
-
-----------                                                                                              
-
-{@{name=Get-St2Rules; CommonParameters=True; WorkflowCommonParameters=False; parameter=System.Object[]}}
+Get-St2Rules [-Connection <St2ClientConnection>] [-PackName <String>] [-Pack <Pack>] [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -20,41 +14,60 @@ syntaxItem
 
 ## PARAMETERS
 ### -Connection &lt;St2ClientConnection&gt;
-The StackStorm Connection created by New-St2ClientConnection
+The connection object (defaults to the one stored in the session)
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       true (ByPropertyName)
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
+```
+ 
+### -PackName &lt;String&gt;
+Filter by pack (name)
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
 ```
  
 ### -Pack &lt;Pack&gt;
-Show rules for a particular pack
+Filter by pack
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
 ```
  
-### -PackName &lt;string&gt;
-Show rules for a particular pack
+### -InformationAction &lt;ActionPreference&gt;
+
 ```
-Position?                    Named
+Required?                    false
+Position?                    named
+Default value
 Accept pipeline input?       false
-Parameter set name           (All)
-Aliases                      None
-Dynamic?                     false
+Accept wildcard characters?  false
+```
+ 
+### -InformationVariable &lt;String&gt;
+
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
 ```
 
 ## INPUTS
-TonyBaloney.St2.Client.PowerShell.St2ClientConnection
 
 
 ## OUTPUTS
-System.Object
+
 
 ## NOTES
 
