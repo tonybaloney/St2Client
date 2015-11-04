@@ -51,3 +51,5 @@ on_success:
   - git commit -m "Updated docs [skip appveyor]" --allow-empty
   - git push origin HEAD:master
   - ps: Invoke-WebRequest -Uri "https://readthedocs.org/build/st2client" -Method Post
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
