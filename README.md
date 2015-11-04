@@ -1,7 +1,7 @@
 # St2Client
 
 [![Build status](https://ci.appveyor.com/api/projects/status/y7rueuv6m1v0g7p8?svg=true)](https://ci.appveyor.com/project/tonybaloney/st2client)
-
+[![NuGet](https://img.shields.io/nuget/dt/St2.Client.svg)](https://www.nuget.org/packages/St2.Client/)
 
 A StackStorm API client for C#.NET including a PowerShell module
 
@@ -15,6 +15,8 @@ The docs are available on readthedocs.org
 ### Download packages
 The .NET client is available on nuget.org
 * Release - [![NuGet](https://img.shields.io/nuget/v/St2.Client.svg)](https://www.nuget.org/packages/St2.Client/)
+The PowerShell module is available on nuget.org
+* Release - [![NuGet](https://img.shields.io/nuget/v/St2.Client.PowerShell.svg)](https://www.nuget.org/packages/St2.Client.PowerShell/)
 
 ### Example
 
