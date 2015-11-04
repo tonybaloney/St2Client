@@ -16,7 +16,7 @@ Remove-St2Action [-Connection <St2ClientConnection>] -Action <Action> [-Informat
 
 ## PARAMETERS
 ### -Connection &lt;St2ClientConnection&gt;
-
+The connection object (defaults to the one stored in the session)
 ```
 Required?                    false
 Position?                    named
@@ -26,7 +26,7 @@ Accept wildcard characters?  false
 ```
  
 ### -Id &lt;String&gt;
-
+The Id of the action to delete
 ```
 Required?                    true
 Position?                    named
@@ -56,7 +56,7 @@ Accept wildcard characters?  false
 ```
  
 ### -Action &lt;Action&gt;
-
+The action to delete
 ```
 Required?                    true
 Position?                    named

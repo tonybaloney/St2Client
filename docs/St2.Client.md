@@ -229,6 +229,14 @@ Gets rules by name.
 > #####Return value
 > The rules by name.
 
+####DeleteRuleAsync(System.String)
+Deletes the rule described by ruleId.
+> #####Parameters
+> **ruleId:** Identifier for the rule.
+
+> #####Return value
+> A Task.
+
 ##St2.Client.Apis.PacksApi
             
 The packs api.
@@ -311,6 +319,56 @@ Gets rules by name .
 > #####Return value
 > The rules by name .
 
+####DeleteRuleAsync(System.String)
+Deletes the rule described by ruleId.
+> #####Parameters
+> **ruleId:** Identifier for the rule.
+
+> #####Return value
+> A Task.
+
+##St2.Client.Exceptions.FailedRequestException
+            
+Exception for signalling failed request errors.
+            
+> *See also: T:System.Exception
+        
+###Methods
+
+
+####Constructor
+Initializes a new instance of the TonyBaloney.St2.Client.Exceptions.FailedRequestException class.
+> #####Parameters
+> **message:** The message.
+
+
+####Constructor
+Initializes a new instance of the FailedRequestException class.
+> #####Parameters
+> **failureMessage:** Message describing the failure.
+
+> **requestUri:** URI of the request.
+
+> **statusCode:** The status code.
+
+> **responseMessage:** Message describing the response.
+
+
+##St2.Client.Exceptions.InvalidTokenException
+            
+Exception for signalling invalid token errors.
+            
+> *See also: T:System.Exception
+        
+###Methods
+
+
+####Constructor
+Initializes a new instance of the TonyBaloney.St2.Client.Exceptions.InvalidTokenException class.
+> #####Parameters
+> **message:** The message.
+
+
 ##St2.Client.AuthExtensions
             
 An authentication extensions.
@@ -369,6 +427,11 @@ Make a DELETE request to the API.
 > #####Parameters
 > **url:** URL of the request.
 
+
+####HasToken
+Query if this object has a token.
+> #####Return value
+> true if token, false if not.
 
 ##St2.Client.St2Client
             
