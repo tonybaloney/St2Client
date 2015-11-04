@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>St2.Client.PowerShell</id>
+    <version>$version$</version>
+    <title>StackStorm API PowerShell module</title>
+    <authors>Anthony Shaw</authors>
+    <projectUrl>https://github.com/tonybaloney/St2Client</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides a client to talk to a StackStorm API via PowerShell.</description>
+    <summary>Provides a client to talk to a StackStorm API.</summary>
+    <releaseNotes>.</releaseNotes>
+    <copyright>Copyright Dimension Data 2015</copyright>
+    <dependencies />
+  </metadata>
+  <files>
+		<file src="bin\Release\Newtonsoft.Json.dll" target="Newtonsoft.Json.dll" />
+		<file src="bin\Release\St2.Client.dll" target="St2.Client.dll" />
+		<file src="bin\Release\St2.Client.PowerShell.dll" target="St2.Client.PowerShell.dll" />
+		<file src="bin\Release\St2.Client.PowerShell.dll-help.xml" target="St2.Client.PowerShell.dll-help.xml" />
+		<file src="bin\Release\St2.Client.psd1" target="St2.Client.psd1" />
+		<file src="bin\Release\St2.Client.xml" target="St2.Client.xml" />
+		<file src="bin\Release\System.Net.Http.Formatting.dll" target="System.Net.Http.Formatting.dll" />
+  </files>
+</package>
