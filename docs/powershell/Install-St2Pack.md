@@ -1,18 +1,16 @@
-﻿Remove-St2Rule
+﻿Install-St2Pack
 ===================
 
 ## SYNOPSIS
-
+Install a pack
 
 ## SYNTAX
 ```powershell
-Remove-St2Rule [-Connection <St2ClientConnection>] -Id <String> [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
-
-Remove-St2Rule [-Connection <St2ClientConnection>] -Rule <Rule> [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
+Install-St2Pack [-Connection <St2ClientConnection>] -Name <String> [-RepoUrl <String>] [-Branch <String>] [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-
+Installs a pack by running the packs.install action
 
 ## PARAMETERS
 ### -Connection &lt;St2ClientConnection&gt;
@@ -25,10 +23,30 @@ Accept pipeline input?       true (ByPropertyName)
 Accept wildcard characters?  false
 ```
  
-### -Id &lt;String&gt;
-
+### -Name &lt;String&gt;
+The pack name
 ```
 Required?                    true
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -RepoUrl &lt;String&gt;
+The repository URL (git)
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -Branch &lt;String&gt;
+The branch to select on the repository
+```
+Required?                    false
 Position?                    named
 Default value
 Accept pipeline input?       false
@@ -49,16 +67,6 @@ Accept wildcard characters?  false
 
 ```
 Required?                    false
-Position?                    named
-Default value
-Accept pipeline input?       false
-Accept wildcard characters?  false
-```
- 
-### -Rule &lt;Rule&gt;
-
-```
-Required?                    true
 Position?                    named
 Default value
 Accept pipeline input?       false

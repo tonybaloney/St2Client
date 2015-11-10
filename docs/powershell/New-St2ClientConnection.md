@@ -6,7 +6,7 @@ Create a new connection to a StackStorm (St2) API endpoint.
 
 ## SYNTAX
 ```powershell
-New-St2ClientConnection -Username <String> -Password <String> [-Name <String>] -ApiUrl <String> -AuthApiUrl <String> [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
+New-St2ClientConnection -Username <String> -Password <String> [-Name <String>] -ApiUrl <String> -AuthApiUrl <String> [-IgnoreCertificateValidation [<SwitchParameter>]] [-InformationAction <ActionPreference>] [-InformationVariable <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -75,6 +75,16 @@ Accept wildcard characters?  false
  
 ### -InformationVariable &lt;String&gt;
 
+```
+Required?                    false
+Position?                    named
+Default value
+Accept pipeline input?       false
+Accept wildcard characters?  false
+```
+ 
+### -IgnoreCertificateValidation &lt;SwitchParameter&gt;
+Ignore certificate validation (e.g. using the default self-signed certificate)
 ```
 Required?                    false
 Position?                    named
