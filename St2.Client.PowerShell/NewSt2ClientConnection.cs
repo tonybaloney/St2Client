@@ -44,6 +44,9 @@ namespace TonyBaloney.St2.Client.PowerShell
 		[Parameter(Mandatory = true, HelpMessage = "The URL of the Auth API")]
 		public string AuthApiUrl { get; set; }
 
+		[Parameter(Mandatory = false, HelpMessage = "Ignore certificate validation errors")]
+		public SwitchParameter IgnoreCertificateValidation { get; set; }
+
 		/// <summary>
 		///     Process the record
 		/// </summary>
@@ -51,7 +54,7 @@ namespace TonyBaloney.St2.Client.PowerShell
 		{
 			base.ProcessRecord();
 
-			St2Client apiClient = new St2Client(AuthApiUrl, ApiUrl, Username, Password);
+			St2Client apiClient = new St2Client(AuthApiUrl, ApiUrl, Username, Password, IgnoreCertificateValidation.ToBool());
 
 			St2ClientConnection st2ClientConnection = new St2ClientConnection(apiClient);
 

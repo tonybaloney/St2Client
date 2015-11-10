@@ -27,16 +27,15 @@ namespace TonyBaloney.St2.Client
 		/// <summary>	The token. </summary>
 		private TokenResponse _token;
 
-		/// <summary>
-		/// 	Initializes a new instance of the TonyBaloney.St2.Client.St2Client class.
-		/// </summary>
+		/// <summary>	Initializes a new instance of the TonyBaloney.St2.Client.St2Client class. </summary>
 		/// <exception cref="ArgumentException">Thrown when one or more arguments have unsupported or
 		/// 									illegal values. </exception>
-		/// <param name="authUrl"> 	URL of the authentication endpoint. </param>
-		/// <param name="apiUrl">  	URL of the API. </param>
-		/// <param name="username">	The username. </param>
-		/// <param name="password">	The password. </param>
-		public St2Client(string authUrl, string apiUrl, string username, string password)
+		/// <param name="authUrl">					  	URL of the authentication endpoint. </param>
+		/// <param name="apiUrl">					  	URL of the API. </param>
+		/// <param name="username">					  	The username. </param>
+		/// <param name="password">					  	The password. </param>
+		/// <param name="ignoreCertificateValidation">	true to ignore certificate validation. </param>
+		public St2Client(string authUrl, string apiUrl, string username, string password, bool ignoreCertificateValidation = false)
 		{
 			if (String.IsNullOrWhiteSpace(authUrl))
 				throw new ArgumentException("Argument cannot be null, empty, or composed entirely of whitespace: 'authUrl'.",
@@ -58,6 +57,9 @@ namespace TonyBaloney.St2.Client
 			_authUrl = new Uri(authUrl);
 			_password = password;
 			_username = username;
+
+			if (ignoreCertificateValidation)
+				System.Net.ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => { return true; };
 
 			Actions = new ActionsApi(this);
 			Packs = new PacksApi(this);
