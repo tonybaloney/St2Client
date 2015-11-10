@@ -18,10 +18,16 @@ namespace TonyBaloney.St2.Client.Apis
 		/// <returns>	A list of <see cref="Execution"/>. </returns>
 		Task<IList<Execution>> GetExecutionsForActionAsync(string actionName, int limit=5);
 
-		/// <summary>	Executes the actionn. </summary>
+		/// <summary>	Executes the action. </summary>
 		/// <param name="actionName">	Name of the action. </param>
 		/// <param name="parameters">	The parameters for the given action. </param>
 		/// <returns>	The resulting execution; </returns>
 		Task<Execution> ExecuteActionAsync(string actionName, Dictionary<string, string> parameters);
+
+		/// <summary>	Executes the action. </summary>
+		/// <param name="actionName">	Name of the action. </param>
+		/// <param name="parameters">	The parameters for the given action. </param>
+		/// <returns>	The resulting execution; </returns>
+		Task<Execution> ExecuteActionAsync(string actionName, Dictionary<string, object> parameters);
 	}
 }

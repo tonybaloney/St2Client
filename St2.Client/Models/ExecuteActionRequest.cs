@@ -7,4 +7,10 @@ namespace TonyBaloney.St2.Client.Models
 		public string action;
 		public Dictionary<string, string> parameters;
 	}
+
+	public class ExecuteComplexActionRequest
+	{
+		public string action;
+		public Dictionary<string, object> parameters;
+	}
 }
