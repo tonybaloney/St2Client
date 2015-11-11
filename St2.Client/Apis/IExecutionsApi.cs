@@ -10,7 +10,7 @@ namespace TonyBaloney.St2.Client.Apis
 		/// <summary>	Gets execution. </summary>
 		/// <param name="id">	The identifier. </param>
 		/// <returns>	The execution. </returns>
-		Task<IList<Execution>> GetExecutionAsync(string id);
+		Task<Execution> GetExecutionAsync(string id);
 
 		/// <summary>	Gets a list of executions. </summary>
 		/// <param name="limit">	The number of items to return (default 5). </param>
