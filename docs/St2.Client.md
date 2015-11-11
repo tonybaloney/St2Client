@@ -110,6 +110,14 @@ Initializes a new instance of the TonyBaloney.St2.Client.Apis.ExecutionsApi clas
 > **System.ArgumentNullException:** Thrown when one or more required arguments are null.
 
 
+####GetExecutionAsync(System.String)
+Gets execution.
+> #####Parameters
+> **id:** The identifier.
+
+> #####Return value
+> The execution.
+
 ####GetExecutionsAsync(System.Int32)
 Gets a list of executions.
 > #####Parameters
@@ -154,6 +162,14 @@ Interface for executions API.
         
 ###Methods
 
+
+####GetExecutionAsync(System.String)
+Gets execution.
+> #####Parameters
+> **id:** The identifier.
+
+> #####Return value
+> The execution.
 
 ####GetExecutionsAsync(System.Int32)
 Gets a list of executions.
