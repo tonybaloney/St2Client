@@ -23,6 +23,15 @@ namespace TonyBaloney.St2.Client.Apis
 			_host = host;
 		}
 
+		/// <summary>	Gets execution. </summary>
+		/// <param name="id">	The identifier. </param>
+		/// <returns>	The execution. </returns>
+		/// <seealso cref="M:TonyBaloney.St2.Client.Apis.IExecutionsApi.GetExecutionAsync(string)"/>
+		public async Task<IList<Execution>> GetExecutionAsync(string id)
+		{
+			return await _host.GetApiRequestAsync<IList<Execution>>("/v1/executions/"+id);
+		}
+
 		/// <summary>	Gets a list of executions. </summary>
 		/// <param name="limit">	The number of items to return (default 5). </param>
 		/// <returns>	A list of <see cref="Execution"/>. </returns>
