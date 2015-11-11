@@ -138,6 +138,16 @@ Executes the action.
 > #####Return value
 > The resulting execution;
 
+####ExecuteActionAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
+Executes the action.
+> #####Parameters
+> **actionName:** Name of the action.
+
+> **parameters:** The parameters for the given action.
+
+> #####Return value
+> The resulting execution;
+
 ##St2.Client.Apis.IExecutionsApi
             
 Interface for executions API.
@@ -164,7 +174,17 @@ Gets executions for action.
 > A list of .
 
 ####ExecuteActionAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
-Executes the actionn.
+Executes the action.
+> #####Parameters
+> **actionName:** Name of the action.
+
+> **parameters:** The parameters for the given action.
+
+> #####Return value
+> The resulting execution;
+
+####ExecuteActionAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
+Executes the action.
 > #####Parameters
 > **actionName:** Name of the action.
 
@@ -472,6 +492,8 @@ Initializes a new instance of the TonyBaloney.St2.Client.St2Client class.
 > **username:** The username.
 
 > **password:** The password.
+
+> **ignoreCertificateValidation:** true to ignore certificate validation.
 
 > #####Exceptions
 > **System.ArgumentException:** Thrown when one or more arguments have unsupported or illegal values.
