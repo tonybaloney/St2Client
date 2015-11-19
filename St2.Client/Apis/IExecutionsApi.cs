@@ -4,7 +4,7 @@ using TonyBaloney.St2.Client.Models;
 
 namespace TonyBaloney.St2.Client.Apis
 {
-	/// <summary>	Interface for executions API. </summary>
+	/// <summary>	Interface for executions  API. </summary>
 	public interface IExecutionsApi
 	{
 		/// <summary>	Gets execution. </summary>
