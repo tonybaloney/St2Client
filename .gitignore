@@ -4,3 +4,4 @@ St2.Client.PowerShell/bin/
 St2.Client.PowerShell/obj/
 St2.Client/bin/
 *.suo
+*.Cache
