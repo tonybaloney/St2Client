@@ -3,7 +3,8 @@ os: Unstable
 branches:
   only:
     - master
-
+install:
+  - ps: Get-PackageProvider -Name NuGet -Force
 assembly_info:
   patch: true
   file: AssemblyInfo.*
