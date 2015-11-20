@@ -29,7 +29,12 @@ artifacts:
   - path: '**\*.nupkg'
   - path: St2.Client\bin\Release\St2.Client.xml
     name: St2.Client.xml
-  
+before_deploy:
+  - ps: |
+      # Update Manifest File
+      $stagingDirectory = (Resolve-Path ..).Path
+      $manifest = Join-Path $pwd 'St2.Client.PowerShell\St2.Client.psd1'
+      (Get-Content $manifest -Raw).Replace("$version$", $env:APPVEYOR_BUILD_VERSION) | Set-Content $manifest
 deploy:
 - provider: NuGet
   api_key:
