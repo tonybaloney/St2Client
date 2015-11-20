@@ -22,7 +22,7 @@ before_build:
       # Update Manifest File
       $stagingDirectory = (Resolve-Path ..).Path
       $manifest = Join-Path $pwd 'St2.Client.PowerShell\St2.Client.psd1'
-      (Get-Content $manifest -Raw).Replace("\$version\$", $env:APPVEYOR_BUILD_VERSION) | Set-Content $manifest
+      (Get-Content $manifest -Raw).Replace("1.0.0", $env:APPVEYOR_BUILD_VERSION) | Set-Content $manifest
 after_build:
   - ps: .\xmldoc2md\xmldoc2md.ps1 -xml "C:\projects\st2client\St2.Client\bin\Release\St2.Client.xml" -xsl "C:\projects\st2client\xmldoc2md\xmldoc2md.xsl" -output "C:\projects\st2client\docs\St2.Client.md"
   - ps: .\DocumentPowerShell.ps1 $($env:powershell_key)
